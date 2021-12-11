@@ -7,7 +7,7 @@
 :root {
   --body-bg-clr: #3a1646;
   --clock-bg-clr: #2d1136;
-  --clock-face-img: url("/assets/images/clock.png");
+  --clock-face-img: url("/docs/assets/images/clock.png");
   --clock-pin-clr: #fff;
   --hour-hand-clr: #ae3f3f;
   --minutes-hand-clr: #fff;
