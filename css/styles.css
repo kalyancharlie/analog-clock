@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-bg-clr: #3a1646;
+  --clock-bg-clr: #2d1136;
+  --clock-face-img: url("/assets/images/clock.png");
+  --clock-pin-clr: #fff;
+  --hour-hand-clr: #ae3f3f;
+  --minutes-hand-clr: #fff;
+  --seconds-hand-clr: #fff;
+  --clock-size: 400px;
+}
+
+body {
+  background-color: var(--body-bg-clr);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.clock-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: var(--clock-size);
+  max-height: var(--clock-size);
+}
+
+.clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--clock-bg-clr);
+  background-image: var(--clock-face-img);
+  background-size: cover;
+  width: var(--clock-size);
+  height: var(--clock-size);
+  position: relative;
+  border: 4px solid var(--clock-bg-clr);
+  box-shadow: 0 -15px 25px rgba(255, 255, 255, 0.05),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 25px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(0, 0, 0, 0.3);
+}
+
+.clock::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: var(--clock-pin-clr);
+  width: 15px;
+  height: 15px;
+  z-index: 1000;
+}
+
+.clock .hours-wrapper,
+.clock .minutes-wrapper,
+.clock .seconds-wrapper {
+  position: absolute;
+}
+
+.hours-wrapper,
+.hours-hand {
+  width: 180px;
+  height: 160px;
+  transition: transform 1s ease;
+}
+
+.minutes-wrapper,
+.minutes-hand {
+  width: 200px;
+  height: 200px;
+  transition: transform 1s ease;
+}
+
+.seconds-wrapper,
+.seconds-hand {
+  width: 250px;
+  height: 240px;
+  transition: transform 1s ease-out;
+}
+
+.hours-hand,
+.minutes-hand,
+.seconds-hand {
+  display: flex;
+  justify-content: center;
+}
+
+.hours-hand::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 80px;
+  background-color: var(--hour-hand-clr);
+  border-radius: 6px 6px 0 0;
+  z-index: 15;
+}
+
+.minutes-hand::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100px;
+  background-color: var(--minutes-hand-clr);
+  border-radius: 6px 6px 0 0;
+  z-index: 20;
+}
+
+.seconds-hand::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 160px;
+  background-color: var(--seconds-hand-clr);
+  border-radius: 6px 6px 0 0;
+  z-index: 25;
+}
+
+@media screen and (max-width: 400px) {
+    :root {
+        --clock-size: 300px;
+    }
+}
